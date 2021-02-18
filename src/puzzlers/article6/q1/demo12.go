@@ -7,10 +7,27 @@ import (
 var container = []string{"zero", "one", "two"}
 
 func main() {
+
+	defer func() {
+		recover()
+
+		fmt.Println("recoverrrrrrrrrrrrrrrrr")
+	}()
 	container := map[int]string{0: "zero", 1: "one", 2: "two"}
 
 	// 方式1。
 	_, ok1 := interface{}(container).([]string)
+
+	if ok1 == true {
+		fmt.Println("true []string")
+	} else {
+		fmt.Println("false []string")
+	}
+	fmt.Println(interface{}(container).([]string))
+	invokePanic := interface{}(container).([]string)
+	fmt.Println(invokePanic)
+
+	fmt.Println("recover???")
 	_, ok2 := interface{}(container).(map[int]string)
 	if !(ok1 || ok2) {
 		fmt.Printf("Error: unsupported container type: %T\n", container)
