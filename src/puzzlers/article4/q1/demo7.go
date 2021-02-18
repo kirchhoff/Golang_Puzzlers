@@ -10,8 +10,7 @@ func main() {
 	//flag.StringVar(&name, "name", "everyone", "The greeting object.") // [2]
 
 	// 方式1。
-	//var name = flag.String("name", "everyone", "The greeting object.")
-	//
+	//name = *flag.String("name", "everyone", "The greeting object.")
 
 	// 方式2。
 	name := flag.String("name", "everyone", "The greeting object.")
